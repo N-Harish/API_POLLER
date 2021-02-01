@@ -2,7 +2,7 @@ import pymongo
 
 
 def db() -> pymongo.database.Database:
-    client = pymongo.MongoClient('mongodb+srv://Harish:9GHq64xbMFgXDapl@cluster0.jmjw9.mongodb.net/<dbname>?retryWrites=true&w=majority')
+    client = pymongo.MongoClient('mongodb+srv://<username>:<password>@cluster0.jmjw9.mongodb.net/<dbname>?retryWrites=true&w=majority')
     dbs = client.get_database('API_POLLER')
     return dbs
 
