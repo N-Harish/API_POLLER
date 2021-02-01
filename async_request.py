@@ -14,28 +14,28 @@ async def main():
 
 
 if __name__ == '__main__':
-    # while True:
-    try:
-        # Get an event loop
-        loop = asyncio.get_event_loop()
+    while True:
+        try:
+            # Get an event loop
+            loop = asyncio.get_event_loop()
 
-        t = time.time()
+            t = time.time()
 
-        # Run main function until code is completed
-        res, res1 = loop.run_until_complete(main())
+            # Run main function until code is completed
+            res, res1 = loop.run_until_complete(main())
 
-        send(body=res.result().text)
-        api1 = get_db_api1()
-        receiver(collection=api1)
+            send(body=res.result().text)
+            api1 = get_db_api1()
+            receiver(collection=api1)
 
-        send(body=res1.result().text)
-        api2 = get_db_api2()
-        receiver(collection=api2)
+            send(body=res1.result().text)
+            api2 = get_db_api2()
+            receiver(collection=api2)
 
-        print(f'total time {time.time() - t}')
+            print(f'total time {time.time() - t}')
 
-    except Exception as e:
-        print(e)
+        except Exception as e:
+            print(e)
 
-    # Restart code after 5 sec
-    time.sleep(5)
+        # Restart code after 5 sec
+        time.sleep(5)
